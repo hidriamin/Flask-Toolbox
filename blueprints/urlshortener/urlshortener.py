@@ -3,10 +3,10 @@ import pyshorteners
 import pyperclip
 
 urlshortener_bp = Blueprint("urlshortener_bp", __name__,
-                            template_folder="templates", static_folder="static")
+                            template_folder="templates", static_folder="static", url_prefix="/urlShortener")
 
 
-@urlshortener_bp.route('/urlshortener', methods=["GET", "POST"])
+@urlshortener_bp.route('/', methods=["GET", "POST"])
 def urlshortener():
     # Gets the url from the form
     if request.method == "POST":

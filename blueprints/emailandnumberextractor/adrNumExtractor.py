@@ -2,10 +2,10 @@ import re
 from flask import Blueprint, render_template, request
 
 adrNumExtractor_bp = Blueprint(
-    "adrNumExtractor_bp", __name__, template_folder="templates", static_folder="static")
+    "adrNumExtractor_bp", __name__, template_folder="templates", static_folder="static", url_prefix="/extractor")
 
 
-@adrNumExtractor_bp.route("/extractor", methods=["GET", "POST"])
+@adrNumExtractor_bp.route("/", methods=["GET", "POST"])
 def extractor():
     if request.method == "POST":
         # Phone number regex
