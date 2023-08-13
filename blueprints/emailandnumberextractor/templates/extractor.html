@@ -8,6 +8,8 @@
     <link
         href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAEAAAAAAAEQARAAAAAAEQAAEQAAAAEQAAABEAAAEQAAAAARAAABEAAAARAAAAARAAARAAAAAAEQARAAAAAAABABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAP//AAD9vwAA+Z8AAPPPAADn5wAAz/MAAOfnAADzzwAA+Z8AAP2/AAD//wAA//8AAP//AAD//wAA"
         rel="icon" type="image/x-icon" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -18,10 +20,7 @@
             resize: none !important;
         }
 
-        .resultDiv svg {
-            fill: green;
-            color: #212529;
-        }
+
 
 
 
@@ -49,6 +48,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{url_for('urlshortener_bp.urlshortener')}}">Url Shortener</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('qrcodegenerator_bp.qrcodegen')}}">QR Code generator</a>
+                </li>
 
             </ul>
 
@@ -64,7 +66,7 @@
                     <form method="post">
                         <textarea name="user_text" rows="10" class="form-control" placeholder="Paste your text here"
                             cols="50" aria-describedby="button-addon2"></textarea><br>
-                        <input type="submit" value="Extract" class="btn btn-outline-secondary" id="button-addon2">
+                        <input type="submit" value="Extract" class="btn btn-outline-primary" id="button-addon2">
                     </form>
                 </div>
             </div>
@@ -86,7 +88,7 @@
                     <!--after fixing the bug, update the instructions to mention that it extracts tunisian phone nubmers
 -->
                 </p>
-                <h5>App by SecondaryMonitor.</h5>
+                <h5>App by Amin HIDRI.</h5>
                 <a href="https://github.com/hidriamin" target="_blank">
 
                     <svg xmlns="http://www.w3.org/2000/svg" height="1em"
@@ -113,10 +115,15 @@
 
                     <textarea rows="3" id="phoneNumberResult" readonly>{{ phoneNumberList }}</textarea>
                     <input type="button" onclick="copyPhoneNumber()" value="Copy"
-                        class="copyPhoneNumberBtn btn btn-outline-secondary m-2" id="button-addon2">
+                        class="copyPhoneNumberBtn btn btn-outline-secondary btn-sm m-2" id="button-addon2">
 
-                    <svg class="phoneNumberCopyNotification hidden mt-1" xmlns="http://www.w3.org/2000/svg" height="1em"
+                    <svg class="phoneNumberCopyNotification hidden" xmlns="http://www.w3.org/2000/svg" height="1em"
                         viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <style>
+                            .resultDiv svg {
+                                fill: #2dc815
+                            }
+                        </style>
                         <path
                             d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
                     </svg>
@@ -132,10 +139,16 @@
                 <div class="d-flex align-items-center">
                     <textarea rows="3" cols="25" id="emailResult" readonly>{{ emailList }}</textarea>
                     <input type="button" onclick="copyEmailAdress()" value="Copy"
-                        class="copyEmailBtn btn btn-outline-secondary m-2" id="button-addon2">
+                        class="copyEmailBtn btn btn-outline-secondary btn-sm m-2" id="button-addon2">
 
-                    <svg class="emailCopyNotification hidden mt-2" xmlns="http://www.w3.org/2000/svg" height="1em"
+                    <svg id="emailCheck" class="emailCopyNotification hidden" xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
                         viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <style>
+                            #emailCheck {
+                                fill: #2dc815
+                            }
+                        </style>
                         <path
                             d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
                     </svg>
